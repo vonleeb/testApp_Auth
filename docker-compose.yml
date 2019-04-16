@@ -1,0 +1,28 @@
+version: '2'
+services:
+  web:
+    container_name: web_1
+    build:
+      context: ./
+      dockerfile: ./docker/apache_php_xdedug
+    ports:
+      - "8081:80"
+    environment:
+      - "xdebug.remote_enable=1"
+      - "PHP_IDE_CONFIG=serverName=phpstorm"
+    volumes:
+      - ./my_app:/var/www/html
+    links:
+      - mysql
+  mysql:
+    container_name: mysql_1
+    image: mysql:5.7
+    volumes:
+      - ./docker/db:/var/lib/mysql
+    environment:
+      - "MYSQL_ROOT_PASSWORD=root"
+      - "MYSQL_USER=app"
+      - "MYSQL_PASSWORD=secret"
+      - "MYSQL_DATABASE=my_app"
+    ports:
+      - "33061:3306"

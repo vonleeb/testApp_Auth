@@ -1,0 +1,19 @@
+{
+    "name": "mypack/testproject",
+    "description": "testproject",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pavel Lebedz",
+            "email": "lebedz.pavel@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "nikic/fast-route": "^2.0@dev",
+        "fuelphp/validation": "dev-master",
+        "aura/session": "3.x-dev",
+        "doctrine/orm": "^3.0@dev"
+    }
+}
